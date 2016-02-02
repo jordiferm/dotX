@@ -29,7 +29,7 @@ GEM
       net-http-persistent (>= 2.7)
       net-http-pipeline
     highline (1.7.8)
-    jekyll (2.5.3)
+    jekyll (2.4.0)
       classifier-reborn (~> 2.0)
       colorator (~> 0.1)
       jekyll-coffeescript (~> 1.0)
@@ -49,9 +49,9 @@ GEM
     jekyll-gist (1.4.0)
       octokit (~> 4.2)
     jekyll-paginate (1.1.0)
-    jekyll-sass-converter (1.3.0)
-      sass (~> 3.2)
-    jekyll-watch (1.3.0)
+    jekyll-sass-converter (1.4.0)
+      sass (~> 3.4)
+    jekyll-watch (1.3.1)
       listen (~> 3.0)
     json (1.8.3)
     kramdown (1.9.0)
@@ -83,7 +83,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     rake (10.4.2)
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.3)
@@ -115,10 +115,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 2.5.3)
+  jekyll (= 2.4.0)
   rake (~> 10.4.2)
   sass (~> 3.4.10)
   travis (~> 1.8)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
