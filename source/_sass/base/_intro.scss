@@ -25,15 +25,15 @@ body.home-intro {
   display: inline-block;
   max-width: $desktop-width;
   margin: auto;
-  padding: 4em 2em;
-
-  @include media($min-tablet) {
-    padding: 6em 0;
-  }
-
-  @include media($min-tablet-large) {
-    padding: 9em 0;
-  }
+  //padding: 4em 2em;
+  //
+  //@include media($min-tablet) {
+  //  padding: 6em 0;
+  //}
+  //
+  //@include media($min-tablet-large) {
+  //  padding: 9em 0;
+  //}
 }
 
 .intro-title,

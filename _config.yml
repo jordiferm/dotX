@@ -28,16 +28,15 @@ baseurl: ""
 
 # Author settings
 author:
-  name      : Fernando Moreira
-  job       : Frontend Engineer
-  bio       : "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
+  name      : Jordi Fernàndez Monteis
+  job       : Senior Software Engineer at Hpe
+  bio       : "Application developer, software engineer, and software architect with 20+ years of experience in a wide variety of business applications."
   thumb     : /images/author.jpg
-  email     : nandomoreira.me@gmail.com
-  url       : http://nandomoreira.me
-  github    : http://github.com/nandomoreirame
-  twitter   : http://twitter.com/nandomoreirame
-  facebook  : http://facebook.com/fernando.dev
-  linkedin  : http://linkedin.com/in/nandomoreirame
+  email     : j@softtopia.com
+  url       : http://jordiferm.github.io
+  github    : http://github.com/jordiferm
+  twitter   : http://twitter.com/jordiferm
+  linkedin  : https://es.linkedin.com/in/jordi-fernàndez-0056751b
 
 # google_analytics: UA-52446115-1
 repo: http://github.com/nandomoreirame/dotX
