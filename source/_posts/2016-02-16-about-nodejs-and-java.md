@@ -275,6 +275,7 @@ Sobre los Frameworks, es verdad que existen bastantes implementaciones, pero la 
 
 ### Ciclos de desarrollo demasiado rapidos rompiendo compatibilidades
 [Por ejemplo meteor](https://github.com/meteor/meteor/graphs/contributors) desde febrero de 2011 a Febrero del 2016 tiene la friolera de:
+
 * 649 Releases
 * 374 Ramas
 * 266 Contribuidores
@@ -401,6 +402,7 @@ A demás existen alternativas a lenguages que compilan a byteCode de Java como s
 Existen muchísimas mas herramientas aún si solo hablamos de las estables y maduras en Java que en Node. Voy a enumerar solo las que conozco muy bién
 
 Desde gestores de proyectos como:
+
 * Maven o Gradle con mas capacidades que npm
 * librerias de Monitorización como [Metrics](https://dropwizard.github.io/metrics/3.1.0/)
 * Para logging [LogBack](http://logback.qos.ch/)
@@ -464,7 +466,7 @@ Implementación de una solución SOA con un bus de servicios expuesto en una API
 * CMS de documentos orientado a API.
 
 
-![SOA Pattern][soapattern_event_procesor_image]
+![SOA Pattern][soapattern_general_image]
 
 # Apendice: Experiencias en NodeJS
 
@@ -495,3 +497,4 @@ http://www.talentbuddy.co/blog/
 [spring_overview_image]: /assets/images/nodevsjava/spring-overview.png
 [java_logo_image]: /assets/images/nodevsjava/Java_Logo.jpg
 [javascript_good_parts_image]: /assets/images/nodevsjava/javascript-the-good-parts-the-definitive-guide.jpg
+[soapattern_general_image]: /assets/images/nodevsjava/soa.png
