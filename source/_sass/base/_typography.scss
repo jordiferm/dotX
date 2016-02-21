@@ -61,7 +61,7 @@ h5,
 h6 {
   font-weight: $font-weight-bold;
   line-height: $heading-line-height;
-  margin: 0 0 $small-spacing;
+  margin: $small-spacing 0 $small-spacing;
 }
 
 p {
