@@ -29,49 +29,48 @@ vamos a ello:
 
 # Solución NodeJS
 
-¿Qué es NodeJS, cuales son sus virtudes, como es su arquitectura ? A continuación vamos a explicarlo:
+¿Qué es NodeJS, cuales son sus virtudes, como es su arquitectura?
 
 ## Arquitectura
 
-Node JS se compone de un núcleo implementado en C y C++ que consta del motor intérprete de Javascript V8 de Google, i la implementación de un patron de arquitectura event-driven con topología de event procesor en un solo thread para gestionar las peticiones.
+Node JS se compone de un núcleo implementado en C y C++ que consta del motor intérprete de Javascript V8 de Google, y la implementación de un patrón de arquitectura event-driven con topología de event procesor en un solo thread para gestionar las peticiones.
 
 ![NodeJs Structure][nodejs_internal_structure_image]
 
-Toda la entrada y salida es asincrona para asegurar que sea Non-Blocking, puesto que el procesador de eventos es de un solo thread.
+Toda la entrada y salida es asíncrona para asegurar que sea Non-Blocking, puesto que el procesador de eventos es de un solo thread.
 
 La idea  es que el procesador de eventos escucha los eventos entrantes y los envia (usando la libreria Libuv) al proceso correspondiente. Libuv optimiza los threads priorizando el bajo consumo de recursos.
 
-Gestionando una petición HTTP cada petición genera un evento y se le asigna un proceso ligado a un callback luego es liberado el procesador para poder atender a otras peticiones o eventos. Cuando el proceso  termina se llama al callback relacionado.
+Cuando NodeJs gestiona una petición HTTP la petición genera un evento y se le asigna un proceso ligado a un callback. En ese momento el procesador de eventos es liberado para poder atender a otras peticiones o eventos. Cuando el proceso termina se llama al callback relacionado.
 El mismo comportamiento se reproduce cuando se realiza una operación de entrada y salida, por ejemplo escribir en un archivo.
 
 ### Beneficios
 
 * El primer beneficio de usar esta arquitectura es que se puede optimizar el consumo de recursos para peticiones simultanias. Por eso se suele decir que node es capaz de gestionar mas peticiones concurrentes con los mismos recursos que otros sistemas (p ej: Java Tradicional).
-* Con entrada y salida asincrona en node podemos procesar un archivo mientras esta siendo procesado, lo que lo hace un buen candidato para aplicaciones con flujos de datos pesados.
+* Con entrada y salida asíncrona en node podemos procesar un archivo mientras esta siendo subido, lo que lo hace un buen candidato para aplicaciones con flujos de datos pesados.
 
 ![NodeJs event loop][nodejs_event_loop_image]
 
 
 ## El Lenguaje
 
-NodeJS esta íntimamente ligado a Javascript una de las piezas clave de su núcleo es el intérprete de Javascript Google V8. Este componente se dedica a ejecutar o procesar eventos con tareas escritas en scripts de Javascript.
+NodeJS esta íntimamente ligado a Javascript una de las piezas clave de su núcleo es el intérprete de [Javascript Google V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)). Este componente se dedica a ejecutar o procesar eventos con tareas escritas en scripts de Javascript.
 
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript) es un lenguaje de programación interpretado, de alto nivel, dinámico, sin tipado fuerte y multi-paradigma.
-Es multi-paradigmo porque soporta los estilos de programación Orientada a Objetos, funcional y imperativa.
-
+Es multi-paradigma porque soporta los estilos de programación Orientada a Objetos, funcional y imperativa.
 Inicialmente fue diseñado para ejecutarse en la parte cliente de las tecnologías web. Los navegadores. Pero actualmente es usado también en [la parte servidor](https://en.wikipedia.org/wiki/Comparison_of_server-side_JavaScript_solutions).
 
 ### Beneficios
 
 * Debido al que usa Javascript nodeJS es bueno manejando JSON (La representación estándar de los objetos en Javascript) actualmente muy utilizado en para la serialización de objetos con los FrontEnds debido a la popularidad de uso de JavaScript en los clientes como los navegadores.
 * Gracias también a Javascript en las aplicaciones web podemos escribir tanto el Front-End com o el Back-End en un mismo lenguaje.
-* Al ser un lenguaje interpretado no tenemos que compilar para ejecutar nuestro código. Esto agiliza las pruebas.
+* Al ser un lenguaje interpretado no tenemos que compilar para ejecutar nuestro código. Esto agiliza las pruebas cuando desarrollamos.
 
 ![Javascript Logo][javascript_logo_image]
 
 ## Frameworks y Herramientas
 
-Una de las características que hace a un Framework interesante es que tenga todos los componentes necesarios para desarrollar nuestra solución.
+Una de las características que hace a un Framework interesante es que tenga **todos los componentes necesarios para desarrollar nuestra solución**.
 
 Existen [infinidad de Frameworks](http://nodeframework.com/) implementados en base a NodeJS. Para diferentes necesidades, por ejemplo:
 
@@ -98,7 +97,7 @@ De forma genérica en cualquier solución se necesita que un framework tenga sop
 * Gestión de dependencias
 * Testing
 
-Otra característica importante que necesita un buen Framework es que sea escalable.
+Otra característica importante que necesita un buen Framework es que sea escalable. Escalable significa que permita que la aplicación pueda crecer o cambiar sin modificar mucho el código.
 
 
 A demás de implementaciones web en Node tambien se desarrollan herramientas para automatizar tareas por ejemplo para generación de código, minificado de front-end, gestión de dependencias, etc...
@@ -135,7 +134,7 @@ Todos los beneficios que acabamos de describir hacen a NodeJS adecuado o seducto
 
 * **Chat**: al ser una aplicación ligera con mucho tráfico, mucho manejo de datos y poco proceso/computación. Su arquitectura event driven le va como anillo al dedo.
 * **API REST sobre objectDB basada en Json**: Reduciendo así el "impedance-mismatch" y por tanto el mapeo de datos y la carga computacional.
-* **Data Streaming** Su anatomia asincrona permite por ejemplo procesar archivos mientras se suben.
+* **Data Streaming** Su anatomia asíncrona permite por ejemplo procesar archivos mientras se suben.
 * **MicroServices** Su microkernel permite con un mínimo de recursos construir servicios que hagan tareas singulares y se comuniquen con un ecosistema de servicios parecidos.
 
 
@@ -149,8 +148,8 @@ Una vez vistas las ventajas, vamos a estudiar las limitaciones, Las repasaremos 
 
 Inicialmente la arquitectura de nodeJS presenta varios problemas:
 
-* **Acoplamiento a V8**: El núcleo de node no abstrae las llamadas a V8 y a demás está muy acoplado a él. Esto hace que sea muy difícil mantener el núcleo al día con los cambios de V8.
-* **Single point of failure**: Debido a que su procesador de eventos es "Single Thread" la plataforma tienen un "Single point of failure" lo que hace muy poco tolerante a los fallos. Un pico de peticiones intenso puede sobrecargar la cpu hasta que el gestor de eventos no pueda hacer tu trabajo esto saturará al servidor y bloqueará todas la peticiones y respuestas pendientes de servir.
+* **[Acoplamiento a V8](http://jxcore.com/node-needs-an-abstraction-layer-for-javascript-engines/)**: El núcleo de node no abstrae las llamadas a V8 por lo tanto está muy acoplado a él. Esto hace que sea muy difícil mantener el núcleo al día con los cambios de V8, cada vez que V8 evoluciona deja de ser compatible con el núcleo de NodeJS.
+* **Single point of failure**: Debido a que su procesador de eventos es "Single Thread" la plataforma tienen un "Single point of failure" lo que hace muy poco tolerante a los fallos. Un pico de peticiones intenso puede sobrecargar la CPU hasta que el gestor de eventos no pueda hacer su trabajo. Esto saturará al servidor y bloqueará todas la peticiones y respuestas pendientes de servir.
 * **Excepciones no controladas rompen el event loop**: También por su naturaleza "Single Thread" si una excepción llega al procesador de eventos este romperá todo el servicio. Aunque podemos reiniciarlo la recuperación puede ser muy costosa y casi con toda seguridad perderemos todas las respuestas que teníamos pendientes, que por su rendimiento pueden ser muchas.
 
 Los patrones de diseño son muy buenos cuando se usan bien pero todo lo contrario cuando se usan mal.
@@ -164,12 +163,16 @@ Hay muchísimos casos donde no me interesa tener I/O asíncrona:
 Por ejemplo en los casos en que el backend realiza cálculos o necesita llamar a servicios por orden o que la llamada a un servicio desencadena o no otra llamada segun su resultado.
 Por supuesto que node y Javascript me propone [muchas soluciones](http://alexeypetrushin.github.io/synchronize/docs/index.html) para hacerlo, pero todas tienden a complicar el código y es un problema más que tengo que tener en cuenta.
 
-En los casos en los que no tengo que sincronizarlos sigo teniendo que lidiar con [llamadas asincronas](http://howtonode.org/promises), vuelvo a pagar coste de desarrollo cuando no tengo tan claro que me aporte nada sobre ninguna necesidad real de mi solución.
+En los casos en los que no tengo que sincronizarlos sigo teniendo que lidiar con [llamadas asíncronas](http://howtonode.org/promises), vuelvo a pagar coste de desarrollo cuando no tengo tan claro que me aporte nada sobre ninguna necesidad real de mi solución.
 
 Por ejemplo otro caso, si quiero hacer logs ordenados de mis operaciones de entrada y salida.
 
 ### Rendimiento
-Se pueden encontrar por la red [comparaciones de rendimiento](https://dzone.com/articles/performance-comparison-between), la arquitectura de NodeJS debería favorecer a contestar muchas peticiones por segundo. Lo interesante es que en la mayoría de soluciones no necesitamos tanto rendimiento y NodeJS nos impone un patrón de arquitectura. En muchas de ellas se habla de miles de peticiones por segundo. Tengamos en cuenta que por ejemplo Google.com tiene unos 5 mil millones de peticiones diarias, eso supone unas 50000 por segundo. En muchos casos 100 o 200 peticiones por segundo son más que suficientes.
+Se pueden encontrar por la red [comparaciones de rendimiento](https://dzone.com/articles/performance-comparison-between), la arquitectura de NodeJS debería favorecer a contestar muchas peticiones por segundo.
+
+Cuidado con las comparaciones, si habeis revisado el enlaze anterior fijaos en que el código de NodeJS solo se conecta una vez a la base de datos en cambio el código de Java se conecta de nuevo en cada thread. Esto no se tiene en cuenta en la comparación. Hay que contrastar bién la información que encontramos en internet.
+
+Si hablamos de rendimiento tengamos en cuenta, que por ejemplo, que Google.com tiene unos 5 mil millones de peticiones diarias, eso supone unas 50000 por segundo. En muchos casos 100 o 200 peticiones por segundo son más que suficientes. En la mayoria de soluciones no necesitamos una arquitectura de alto rendimiento.
 
 
 
@@ -278,9 +281,14 @@ La deuda tecnológica es una de las grandes cosas a tener en cuenta en cualquier
 
 ### Mismo lenguaje en back y en Front
 
-Realmente, si el BackEnd y el FrontEnd están separados como deberían, la cantidad de código que van a compartir es casi 0.
+Realmente, si el BackEnd y el FrontEnd están separados como deberían, la cantidad de código que van a compartir es muy poco. Tan solo se me ocurren casos muy concretos como:
 
-A demás el perfil de los programadores de Front-End y el de los de BackEnd es muy distinto. Raramente un programador de FrontEnd entenderá las implicaciones derivadas por ejemplo de una consulta a la base de datos, y por el otro lado, rara vez un programador de BackEnd entenderá las consecuencias de hacer, por ejemplo, cambios en un CSS.
+* Casos concretos de Validación de entrada de datos que se suelen hacer tanto en front como en back-end.
+* Previsualización de un gráfico interactivo en front-end que luego se genera en un PDF del backend.
+
+Aun así si pensamos bien la arquitectura el sobrecoste de estas replicaciones es mínimo.
+
+El perfil de los programadores de Front-End y el de los de BackEnd es muy distinto. Raramente un programador de FrontEnd entenderá las implicaciones derivadas por ejemplo de una consulta a la base de datos, y por el otro lado, rara vez un programador de BackEnd entenderá las consecuencias de hacer, por ejemplo, cambios en un CSS.
 
 Por tanto el poder compartir código en FrontEnd y en BackEnd no supone ninguna ventaja significativa.
 
@@ -411,7 +419,7 @@ Saliendo de implementaciones de terceros y volviendo a Java tradicional, Java so
 #### No tengo el event Driven Impuesto.
 El modelo de Event Driven
 
-#### No tengo el modelo asincrono impuesto
+#### No tengo el modelo asíncrono impuesto
 Debido a que existen modelos híbridos como Play, [Spring](http://callistaenterprise.se/blogg/teknik/2014/04/22/c10k-developing-non-blocking-rest-services-with-spring-mvc/) o que es fácil implementar un método concreto de forma asíncrona.
 Si un proceso por ejemplo hace llamadas a una api que tienen que sincronizarse NodeJS pierde el sentido. No tenemos mas remedio que sincronizar código asíncrono cosa que complica nuestra implementación innecesariamente.
 
@@ -518,11 +526,16 @@ Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones e
 
 ---
 
-# En resumen
+# Conclusión
 
-El rápido punto de entrada de NodeJs resulta muy atractivo para acercar a los programadores de Front-End al Back-End, también es una buena herramienta para soluciones simples, prototipos y pruebas de concepto.
+Comparando NodeJS con el modelo tradicional de Java solo tenemos en cuenta un pequeño subconjunto de Java.
+Este ha evolucionado mucho desde antes de NodeJS, ja no es ese código monolítico que seguía a la arquitectura J2EE de SUN com EJB2.0. El propio **Spring** surgió para mejorar y simplificar al de SUN. Gracias a esto y a que se ha sabido adaptar a los cambios impuestos por internet ahora disponemos de implementaciones mas modernas y robustas que cualquiera de las demás.
 
-Pero para proyectos de cierta duración, envergadura y robustez no nos interesa un punto de entrada rápido, sino perfiles con amplio conocimiento de los patrones de diseño y arquitecturas que hay que aplicar. En estos casos, Java es mejor herramienta.
+Existen muchas implementaciones del patrón de NodeJS en Java por lo general mucho más eficientes. A diferencia de NodeJS, Java no nos impone su arquitectura y tenemos muchas mas herramientas para trabajar y garantizar unos niveles de calidad.
+Una ventaja que resulta clave en Java es la posibilidad de escribir código de más calidad, más transferible, más robusto, mantenible y donde los errores se detectarán con más claridad.
+
+De NodeJS nos quedamos con el rápido punto de entrada, que resulta muy atractivo para acercar a los programadores de Front-End al Back-End, también es una buena herramienta para soluciones simples, prototipos y pruebas de concepto.
+Pero para proyectos de cierta duración, envergadura y robustez no nos interesa un punto de entrada rápido, sino perfiles con amplio conocimiento de los patrones de diseño y arquitecturas y herramientas como Java que les permitan aplicarlos de forma eficiente.
 
 ---
 
