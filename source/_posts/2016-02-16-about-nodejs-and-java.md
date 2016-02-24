@@ -488,24 +488,23 @@ Spring nació en **2002** para simplificar el desarrollo de Java partiendo con u
 
 ![Spring Overview][spring_overview_image]
 
-Una de las muchas cosas que ha hecho muy bien Spring es integrar un ecosistema de librerías para tener el honor de poderse llamar Full Stack:
+Una de las muchas cosas que ha hecho muy bien Spring es integrar un [ecosistema de librerías](https://spring.io/projects) para tener el honor de poderse llamar Full Stack:
 
 * **Spring Boot** (Configuració, staging, ejecución)
-* Spring Framework (Núcleo de Spring)
-* Spring XD (Big Data)
-* Spring Cloud (Todo lo necesario para MicroServices)
-* Spring Data (Persistencia)
-* Spring Batch (Procesado de volumenes grandes de datos)
-* Spring Integration (Todos los patrones Enterprise Integration)
-* Spring Security (Authorizacion y Authenticación)
-* Spring HATEOAS (Nivel 3 de RestFUL)
-* Spring Social (Integracion con redes sociales)
-* Spring AMPQ (Patrones de Message queues)
-* Spring Mobile
-* Spring Web
-* Spring Web Services
-* Spring Session
-* ...
+* **Spring Framework** (Núcleo de Spring, IOC, AOP, Acceso de datos, web apps, messaging y mucho más)
+* **Spring XD** (Big Data)
+* **Spring Cloud** (Todo lo necesario para MicroServices, Configuration management, service discovery, micro-proxy, circuit breakers, sesiones distribuidas, etc...)
+* **Spring Data** (Persistencia, Sql, NoSQL, map-reduce, etc)
+* **Spring Batch** (Procesado de volumenes grandes de datos)
+* **Spring Integration** (Todos los patrones Enterprise Integration, Adaptadores declarativos)
+* **Spring Security** (Authorizacion y Authenticación totalmente extensible)
+* **Spring HATEOAS** (Nivel 3 de RestFUL)
+* **Spring Social** (Integracion con redes sociales)
+* **Spring AMPQ** (Patrones de Message queues)
+* **Spring Mobile** (Deteccion de dispositivos, desarollo de webapps para móbiles)
+* **Spring Web Services** (Integración con Servicios contract-first SOAP)
+* **Spring Session** (Distintas implementaciones de gestión de sessiones de usuario)
+* etc...
 
 Otra gran virtud de Spring es que es extremadamente escalable. Todas las capas que deben son abstractas. Por ejemplo la gestión de sesiones, de cache, de Transacciones todo es reimplementable o intercambiando piezas, configurando el contexto hago cosas como cambiar la persistencia de sesión sin tocar nada más que una definición de Bean.
 
