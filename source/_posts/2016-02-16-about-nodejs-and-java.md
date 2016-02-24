@@ -494,7 +494,7 @@ Pero si hablamos de Frameworks existe uno que se lleva el premio Gordo.
 
 Spring nació en **2002** para simplificar el desarrollo de Java partiendo con un núcleo de IOC o inyeccion de dependencias y AOP.
 
-![Spring Overview][spring_overview_image]
+![Spring Ecosystem][spring_ecosystem_image]
 
 Una de las muchas cosas que ha hecho muy bien Spring es integrar un [ecosistema de librerías](https://spring.io/projects) para tener el honor de poderse llamar Full Stack:
 
@@ -516,6 +516,8 @@ Una de las muchas cosas que ha hecho muy bien Spring es integrar un [ecosistema 
 
 Otra gran virtud de Spring es que es extremadamente escalable. Todas las capas que deben son abstractas. Por ejemplo la gestión de sesiones, de cache, de Transacciones todo es reimplementable o intercambiando piezas, configurando el contexto hago cosas como cambiar la persistencia de sesión sin tocar nada más que una definición de Bean.
 
+El código de Spring es de altísima calidad y con gran variedad de patrones de diseño muy bién aplicados.
+
 ## La Comunidad
 
 Las herramientas conservan las ventajas de ser comunidades de código abierto, pero suelen priorizar la estabilidad y compatibilidad de los proyectos, los códigos no son tan crípticos ni las aportaciones tan descontroladas y caóticas.
@@ -530,6 +532,8 @@ Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones e
 
 Comparando NodeJS con el modelo tradicional de Java solo tenemos en cuenta un pequeño subconjunto de Java.
 Este ha evolucionado mucho desde antes de NodeJS, ja no es ese código monolítico que seguía a la arquitectura J2EE de SUN com EJB2.0. El propio **Spring** surgió para mejorar y simplificar al de SUN. Gracias a esto y a que se ha sabido adaptar a los cambios impuestos por internet ahora disponemos de implementaciones mas modernas y robustas que cualquiera de las demás.
+
+![Conclusion image][conclusion_image]
 
 Existen muchas implementaciones del patrón de NodeJS en Java por lo general mucho más eficientes. A diferencia de NodeJS, Java no nos impone su arquitectura y tenemos muchas mas herramientas para trabajar y garantizar unos niveles de calidad.
 Una ventaja que resulta clave en Java es la posibilidad de escribir código de más calidad, más transferible, más robusto, mantenible y donde los errores se detectarán con más claridad.
@@ -550,6 +554,7 @@ uno de sus motivos fue para que sus front-enders pudieran escribir también back
 
 ## Ebay
 Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05/17/how-we-built-ebays-first-node-js-application/), en ella reconocen que no comprobaron otras opciones diferentes que el modelo tradicional de servlets en Java.
+
 ![Ebay testimony][ebay_testimony_image]
 
 ----
@@ -566,3 +571,5 @@ Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05
 [soapattern_general_image]: /assets/images/nodevsjava/soa.png
 [nested_deps_image]: /assets/images/nodevsjava/nested-deps.png
 [ebay_testimony_image]: /assets/images/nodevsjava/ebay_testimony.png
+[spring_ecosystem_image]: /assets/images/nodevsjava/spring-ecosystem.jpg
+[conclusion_image]: /assets/images/nodevsjava/conclusion.jpg
