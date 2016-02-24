@@ -20,11 +20,14 @@ Me veo obligado a hablar sobre ello por dos motivos: Primero porqué la mayoría
 
 Intentaré ser el máximo objetivo, claro y analítico posible. Mi objetivo es que al leer este artículo tengáis más claro qué tecnología es mejor para implementar vuestra solución.
 
+![Fight][fight_image]
+
 Comparar NodeJS con Java no es correcto. Puesto que NodeJS es la implementación de una arquitectura con una serie de tecnologías y lenguajes y Java es en si un lenguaje.
 
 Lo correcto seria estudiar una solución a partir de tecnologías relacionadas con NodeJS o con tecnologías relacionadas con Java.
 
 vamos a ello:
+
 
 
 # Solución NodeJS
@@ -142,7 +145,10 @@ Todos los beneficios que acabamos de describir hacen a NodeJS adecuado o seducto
 
 # Limitaciones de la Solucion NodeJS
 
+![Hombre confundido][confused_man_image]
+
 Una vez vistas las ventajas, vamos a estudiar las limitaciones, Las repasaremos apartado por apartado siguiendo el orden de los anteriores:
+
 
 ## Arquitectura
 
@@ -560,12 +566,12 @@ Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05
 ----
 
 
+[fight_image]: /assets/images/nodevsjava/fight.jpg
 [nodejs_internal_structure_image]: /assets/images/nodevsjava/node_internal_structure.png
 [nodejs_event_loop_image]: /assets/images/nodevsjava/nodejs_event_loop.png
 [soapattern_event_procesor_image]: /assets/images/nodevsjava/soapattern_event_processor.png
 [javascript_logo_image]: /assets/images/nodevsjava/javascript_logo.png
 [frameworks_image]: /assets/images/nodevsjava/frameworks.png
-[spring_overview_image]: /assets/images/nodevsjava/spring-overview.png
 [java_logo_image]: /assets/images/nodevsjava/Java_Logo.jpg
 [javascript_good_parts_image]: /assets/images/nodevsjava/javascript-the-good-parts-the-definitive-guide.jpg
 [soapattern_general_image]: /assets/images/nodevsjava/soa.png
@@ -573,3 +579,4 @@ Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05
 [ebay_testimony_image]: /assets/images/nodevsjava/ebay_testimony.png
 [spring_ecosystem_image]: /assets/images/nodevsjava/spring-ecosystem.jpg
 [conclusion_image]: /assets/images/nodevsjava/conclusion.jpg
+[confused_man_image]: /assets/images/nodevsjava/confused_man.jpg
