@@ -387,30 +387,61 @@ En un ecosistema de ese tipo, necessito gestores de configuración centralizados
 ![Java Logo][java_logo_image]
 
 
-Solemos identificar Java con sus modelos clásicos a menudo propuestos por Sun Microsystems, como la [especificación de Servlets](http://download.oracle.com/otn-pub/jcp/servlet-3.0-fr-eval-oth-JSpec/servlet-3_0-final-spec.pdf?AuthParam=1456183031_2f62340d91f6ca0dcfb9c7e2004df9ba) lo interesante es que soluciones con la arquitectura de NodeJS ya existen en Java incluso desde antes que node. El problema fué quizá que al asociarse Java con su modelo tradicional, nadie lo tubo como solucion.
+Solemos identificar Java con sus modelos clásicos a menudo propuestos por Sun Microsystems, como la [especificación de Servlets](http://download.oracle.com/otn-pub/jcp/servlet-3.0-fr-eval-oth-JSpec/servlet-3_0-final-spec.pdf?AuthParam=1456183031_2f62340d91f6ca0dcfb9c7e2004df9ba) lo interesante es que soluciones con la arquitectura de NodeJS ya existen en Java incluso desde antes que node. El problema fué quizá que al asociarse Java con su modelo tradicional, nadie lo tubo en cuenta como solucion.
 
 ## Arquitectura
 
 Existen muchas implementaciones de la architectura de nodeJS en Java:
 
+* [Akka](http://akka.io/)
+* [Vert.x](http://vertx.io/)
 * [Play Framework](https://www.playframework.com/)
 * [Netty](http://netty.io/)
 * [Apache Mina](https://mina.apache.org/)
 * [Grizzly](https://grizzly.java.net/)
 * [CoralReactor](http://www.coralblocks.com/index.php/category/coralreactor/)
 
-Muchas de ellas mas maduras que nodeJS.
-Luego el argumento de que la arquitectura de node es mejor que la de Java se ha de reformular quizá en que la arquitectura de NodeJS es mejor que la del modelo de aplicaciones web 3 capas o de servlet tradicional.
+Muchas de ellas más maduras que nodeJS.
+Luego el argumento de que la arquitectura de node es mejor que la de Java se ha de reformular quizá en que la arquitectura de NodeJS es mejor que la del modelo de aplicaciones web 3 capas o de servlet tradicional con el que se relaciona Java.
+
+Saliendo de implementaciones de terceros y volviendo a Java tradicional, Java soporta [entrada y salida asíncrona](http://en.wikipedia.org/wiki/New_I/O) desde 2002 y Java SE 1.4. En 2009 la especificación de Servlet 3.0 estandarizó el procesado "Non-Blocking" pudiendo usarse si queremos servidores de aplicaciones tradicionales como GlassFish, Tomcat, Jetty o cualquier alternativa comercial.
 
 ### Beneficios
 
 Cuales serian pues los beneficios de usar la implementación de una arquitectura como la de node en Java ?
 
+#### No tengo el event Driven Impuesto.
+El modelo de Event Driven
+
 #### No tengo el modelo asincrono impuesto
-Debido a que existen modelos hibridos como Play o que es facil implementar un handler asincrono.
+Debido a que existen modelos hibridos como Play, [Spring](http://callistaenterprise.se/blogg/teknik/2014/04/22/c10k-developing-non-blocking-rest-services-with-spring-mvc/) o que es fácil implementar un metodo concreto de forma asíncrona.
 Si un proceso por ejemplo hace llamadas a una api que tienen que sincronizarse NodeJS pierde el sentido. No tenemos mas remedio que sincronizar código asincrono cosa que complica nuestra implementación innecesariamente.
 
+En Java es muy fácil implementar una de nuestras llamadas de forma explicitament asíncrona.
+Ejemplo llamada asíncrona en Java:
+
+{% highlight java %}
+@Service
+public class GitHubLookupService {
+
+    RestTemplate restTemplate = new RestTemplate();
+
+    @Async
+    public Future<User> findUser(String user) throws InterruptedException {
+        System.out.println("Looking up " + user);
+        User results = restTemplate.getForObject("https://api.github.com/users/" + user, User.class);
+        // Artificial delay of 1s for demonstration purposes
+        Thread.sleep(1000L);
+        return new AsyncResult<User>(results);
+    }
+
+}
+{% endhighlight %}
+
+En este punto también podemos mencionar que existen implementaciones como [akka](http://akka.io/) que facilitan la programación asyncrona muchísimo más que las de los actuales de NodeJS.
+
 #### No estoy ligado a Javascript
+
 Muchos lenguages compilan al ByteCode de Java, Por ejemplo Skala o Clojure, Groovy a demas son compatibles con sus herramientas de perfilado, gestión de dependéncias, etc...
 
 #### Performance
@@ -421,10 +452,14 @@ http://www.olympum.com/java/java-aio-vs-nodejs/
 
 Java es un lenguaje de propósito general basado en classes y especialmente diseñado para tener el mínimo de dependencias posibles. Es de tipado fuerte y compilado con la peculiaridad que se compila a un bytecode que lo ejecuta una máquina virtual. Al existir esa máquina virtual para todas la plataformas el código compilado de java puede funcionar en todas las plataformas.
 
-En esencia mucho [más eficiente](https://medium.com/@tschundeee/express-vs-flask-vs-go-acc0879c2122#.9d4qj5p1d) que Javascript en todos los sentidos.
+En esencia mucho más eficiente que Javascript. V8 esta evolucionado en la parte cliente y Java lleva más de 20 años optimizando sus compiladores. Sin incluimos NodeJS tenemos una penalización extra con los bindings de Node a V8.
+Aquí tenemos algunos ejemplos y pruebas de rendimiento:
+* [Benchmark algoritmos](http://benchmarksgame.alioth.debian.org/u32/javascript.html)
+* [Comparación peticiones por segundo con distintos Frameworks](https://medium.com/@tschundeee/express-vs-flask-vs-go-acc0879c2122#.9d4qj5p1d)
 
-No tiene las limitaciones que hemos hablado anteriormente para el control de escepciones, los errores en tiempo de ejecución, etc... Y a diferencia de JavaScript tiende a obligar a escribir buen código. Por ejemplo puede imponer que se implemente una interfaz.
 
+Java No tiene las limitaciones que hemos hablado anteriormente para el control de excepciones, los errores en tiempo de ejecución, etc... Y a diferencia de JavaScript tiende a obligar a escribir buen código. Por ejemplo puede imponer que se implemente una interfaz.
+Java, devido a sus contratos y su tipado fuerte es un lenguage más Auto Documentado "Self-Documenting". Esta es una característica que cobra mucha importancia en proyectos grandes.
 Pero es que a demás en términos de cantidad de proyectos que usan el lenguage la adopción de java en los últimos años ha sido incluso [superior al de Javascript](https://github.com/blog/2047-language-trends-on-github).
 
 
@@ -432,17 +467,22 @@ A demás existen alternativas a lenguages que compilan a byteCode de Java como s
 
 ## Frameworks y Herramientas
 
-Existen muchísimas mas herramientas aún si solo hablamos de las estables y maduras en Java que en Node. Voy a enumerar solo las que conozco muy bién
-
-Desde gestores de proyectos como:
+En el mundo de los Frameworks y las Herramientas existen una mayor cantidad en Java que en Node. Por ejemplo mirando a los repositorios de paquetes: De los 243k paquetes en [npm](https://www.npmjs.com) pasamos a los 1246k en el [repositorio de maven](http://mvnrepository.com/) 5 veces mas.
+Voy a enumerar unas cuantas herramientas y frameworks que conozco personalmente:
 
 * Maven o Gradle con mas capacidades que npm
 * librerias de Monitorización como [Metrics](https://dropwizard.github.io/metrics/3.1.0/)
 * Para logging [LogBack](http://logback.qos.ch/)
 * Para control de versiones en BD: [Liquibase](http://www.liquibase.org/)
-* Cache [EHCache](http://www.ehcache.org/)
-* Tests [Mockito](http://mockito.org/)
-* etc... TODO Completar
+* Cache [EHCache](http://www.ehcache.org/), [HazelCast](https://hazelcast.com/)
+* Tests [Mockito](http://mockito.org/), [JUnit](http://junit.org/)
+* Persistencia [Hibernate](http://hibernate.org/)
+* Componentes graficos [Vaadin](https://vaadin.com/home)
+* Gestión de repositorios [Nexus](http://www.sonatype.com/nexus/solution-overview)
+* Serialización [Jackson](https://github.com/FasterXML/jackson)
+* Reporting [Jasper Reports](http://community.jaspersoft.com/project/jasperreports-library)
+*
+
 
 Pero si hablamos de Frameworks existe uno que se lleva el premio Gordo.
 
@@ -450,12 +490,11 @@ Pero si hablamos de Frameworks existe uno que se lleva el premio Gordo.
 
 Spring nació en **2002** para simplificar el desarrollo de Java partiendo con un núcleo de IOC o injeccion de dependencias y AOP.
 
-
 ![Spring Overview][spring_overview_image]
 
 Una de las muchas cosas que ha hecho muy bien Spring es integrar un ecosistema de librerias para tener el honor de poderse llamar Full Stack:
 
-* Spring Boot (Configuració, staging, ejecución)
+* **Spring Boot** (Configuració, staging, ejecución)
 * Spring Framework (Núcleo de Spring)
 * Spring XD (Big Data)
 * Spring Cloud (Todo lo necesario para MicroServices)
@@ -485,39 +524,27 @@ Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones e
 
 ---
 
+# En resumen
 
-# Concretando La solución
+El rápido punto de entrada de NodeJs resulta muy atractivo para acercar a los programadores de Front-End al Back-End, también es una buena herramienta para soluciones simples, prototipos y pruebas de concepto.
 
-Implementación de una solución SOA con un bus de servicios expuesto en una API RestFul con los siguientes servicios:
+Pero para proyectos de cierta duración, embergadura y robustez no nos interesa un punto de entrada rápido, sinó perfiles con amplio conocimiento de los patrones de diseño y arquitecturas que hay que aplicar. En estos casos, Java es mejor herramienta.
 
-* De infrastructura
-  * Authenticacion OpenID
-  * Authorizacion JAVA
-* Indexador
-* Recomendador
-* Calendario
-* CMS de documentos orientado a API.
-
-
-![SOA Pattern][soapattern_general_image]
+---
 
 # Apendice: Experiencias en NodeJS
 
+## Gad
+Mi experiencia en NodeJS con Sails y Restful. La aproximación fué inmediata, pero a la semana de trabajo ya empezamos a leer código de Sails por poca documentación. Luego al subir de complejidad la capa de servicio nos obligó a refactorizarla con poco éxito. Finalmente procesos con llamadas a servicios sincronizadas nos ocuparon mucho mas tiempo del esperado. A la semana de subir a producción teniamos un problema grabe en Sails que se arregló en una nueva versión que al instalarla rompió toda la capa de servicio ya que havian cambiado interfaces de su api.
+
 ## Netflix
-[Uso Node en netflix](http://www.talentbuddy.co/blog/building-with-node-js-at-netflix/)
-Para que sus front-enders pudieran escribir también backend
+[Netflix uso NodeJs](http://www.talentbuddy.co/blog/building-with-node-js-at-netflix/)
+uno de sus motivos fué para que sus front-enders pudieran escribir también backend
 
 ## Ebay
-Reconocen que no comprovaron otras opciones diferentes que el modelo tradicional de servlets en Java.
+Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05/17/how-we-built-ebays-first-node-js-application/), en ella reconocen que no comprovaron otras opciones diferentes que el modelo tradicional de servlets en Java.
 
-http://www.talentbuddy.co/blog/
-
-## Mi experiencia con Frameworks de node:
-* Sails
-
-
-## Moraleja:
-> A fool with a tool is still a fool :)
+![Ebay testimony][ebay_testimony_image]
 
 ----
 
@@ -532,3 +559,4 @@ http://www.talentbuddy.co/blog/
 [javascript_good_parts_image]: /assets/images/nodevsjava/javascript-the-good-parts-the-definitive-guide.jpg
 [soapattern_general_image]: /assets/images/nodevsjava/soa.png
 [nested_deps_image]: /assets/images/nodevsjava/nested-deps.png
+[ebay_testimony_image]: /assets/images/nodevsjava/ebay_testimony.png
