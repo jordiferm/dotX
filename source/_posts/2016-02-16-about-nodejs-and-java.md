@@ -243,20 +243,18 @@ Estos son dos códigos seleccionados al azar que creo que representan muy bien l
 
 En el primer ejemplo (Java) encontramos nombres descriptivos, complejidad ciclomática baja, funciones pequeñas que atienden a su responsabilidad. Como resultado, podemos hacernos una idea de lo que hace el código de inmediato.
 
-En el segundo caso (JavaScript), encontramos nombres de variables no descriptivos y ambiguos como: **obj**, **callback**, **sync**, control de errores sin excepciones que augmentan la complejidad ciclomatica, etc... Resultado: códigos mas difíciles de leer.
+En el segundo caso (JavaScript), encontramos nombres de variables no descriptivos y ambiguos como: **obj**, **callback**, **sync**, control de errores sin excepciones que aumentan la complejidad ciclomatica, etc... Resultado: códigos mas difíciles de leer.
 
-Si quereis un ejemplo con códigos más similares aqui teneis una [cesta de la compra en Java](https://github.com/dpaani/springmvc-shoppingcart-sample/blob/master/shoppingcart/src/main/java/com/codetosalvation/shoppingcart/web/controller/ShoppingCartController.java) y [otra similar en JavaScript](https://github.com/krakenjs/kraken-example-with-shoppingcart/blob/master/controllers/cart/index.js)
-En este ejemplo se ve como en Java se tiende a escribir más classes cada cual con su responsabilidad => (Clean Code) y en JavaScript es frequente encontrar funciones largas con expresiones de distintos niveles de detalle en la misma función => (Bad Code).
+Si queréis un ejemplo con códigos más similares aquí tenéis una [cesta de la compra en Java](https://github.com/dpaani/springmvc-shoppingcart-sample/blob/master/shoppingcart/src/main/java/com/codetosalvation/shoppingcart/web/controller/ShoppingCartController.java) y [otra similar en JavaScript](https://github.com/krakenjs/kraken-example-with-shoppingcart/blob/master/controllers/cart/index.js)
+En este ejemplo se ve como en Java se tiende a escribir más clases cada cual con su responsabilidad =&gt; (Clean Code) y en JavaScript es frecuente encontrar funciones largas con expresiones de distintos niveles de detalle en la misma función =&gt; (Bad Code).
 
 Des de luego que se puede escribir buen código independientemente del lenguaje. Pero en la práctica los códigos que encontramos en los proyectos Open Source en JavaScript son de una calidad de inferior.
-Quizá por su naturaleza multi-proposito, o porqué en Javascript no hay una sola forma de hacer las cosas, se pueden definir objetos de varias formas distintas, no hay tipado fuerte, etc...  Al final no creo que los programadores que escriben proyectos OpenSource en Javascript sean peores sinó que el lenguage no les ayuda para escribir codigo de calidad.
-
+Quizá por su naturaleza multi-proposito, o porqué en Javascript no hay una sola forma de hacer las cosas, se pueden definir objetos de varias formas distintas, no hay tipado fuerte, etc... Al final no creo que los programadores que escriben proyectos OpenSource en Javascript sean peores sinó que el lenguaje no les ayuda para escribir código de calidad.
 
 ### Exception handling
 
-
-Al no tener tipos la gestión de excepciones en JavaScript pierde una de sus grandes vazas. Como especializo el control de excepciones ?
-En su esencia controlar excepciones es delegar el error a otro nivel o a otra capa. Cuando cazo una excepción es porque puedo actuar en consecuencia, aportar algo a ese control. En JavaScript no puedo seleccionar facilmente que tipos de excepción voy a controlar y para ello me veo obligado a hacer comprovación de tipos en tiempo de ejecución.
+Al no tener tipos la gestión de excepciones en JavaScript pierde una de sus grandes bazas. ¿Como especializo el control de excepciones?
+En su esencia controlar excepciones es delegar el error a otro nivel o a otra capa. Cuando cazo una excepción es porque puedo actuar en consecuencia, aportar algo a ese control. En JavaScript no puedo seleccionar fácilmente que tipos de excepción voy a controlar y para ello me veo obligado a hacer comprobación de tipos en tiempo de ejecución.
 
 {% highlight javascript %}
 try {
@@ -271,19 +269,18 @@ try {
 }
 {% endhighlight %}
 
-A demás el control de excepciones en códigos de naturaleza asíncrona, en esencia con muchos callbacks, se compilica muchísimo.
+A demás el control de excepciones en códigos de naturaleza asíncrona, en esencia con muchos callbacks, se complica muchísimo.
 
 ### Errores en tiempo de ejecución
-Por su naturaleza tan dinàmica y al tener cosas como el no tipado fuerte, objetos en base a prototipos y ningún compilador muchos errores en JavaScript se producen en tiempo de ejecución. Las soluciones suelen ser incrementar la cobertura el testing. Las capas de testing suelen ser bastante difíciles de mantener ahora a la postre estoy obligado a cubrir con testing aspectos que con otros lenguages no son necesarios.
+Por su naturaleza tan dinámica y al tener cosas como el no tipado fuerte, objetos basándonos en prototipos y ningún compilador muchos errores en JavaScript se producen en tiempo de ejecución. Las soluciones suelen ser incrementar la cobertura el testing. Las capas de testing suelen ser bastante difíciles de mantener ahora a la postre estoy obligado a cubrir con testing aspectos que con otros lenguajes no son necesarios.
 
-
-La déuda tecnológica es una de las grandes cosas a tener en cuenta en cualquier aplicación.
+La deuda tecnológica es una de las grandes cosas a tener en cuenta en cualquier aplicación.
 
 ### Mismo lenguaje en back y en Front
 
 Realmente, si el BackEnd y el FrontEnd están separados como deberían, la cantidad de código que van a compartir es casi 0.
 
-A demás el perfil de los programadors de Front-End y el de los de BackEnd es muy distinto. Raramente un programador de FrontEnd entenderá las implicaciones deribadas por ejemplo de una consulta a la base de datos, y por el otro lado, rara vez un programador de BackEnd entenderá las consecuéncias de hacer, por ejemplo, cambios en un CSS.
+A demás el perfil de los programadores de Front-End y el de los de BackEnd es muy distinto. Raramente un programador de FrontEnd entenderá las implicaciones derivadas por ejemplo de una consulta a la base de datos, y por el otro lado, rara vez un programador de BackEnd entenderá las consecuencias de hacer, por ejemplo, cambios en un CSS.
 
 Por tanto el poder compartir código en FrontEnd y en BackEnd no supone ninguna ventaja significativa.
 
@@ -291,35 +288,35 @@ Por tanto el poder compartir código en FrontEnd y en BackEnd no supone ninguna 
 
 ## Frameworks y Herramientas
 
-La mayoria de los frameworks desarrolados sobre NodeJS sufren de:
+La mayoría de los frameworks desarrollados sobre NodeJS sufren de:
 
 
-### Ciclos de desarrollo demasiado rapidos rompiendo compatibilidades
+### Ciclos de desarrollo demasiado rápidos rompiendo compatibilidades
 [Por ejemplo meteor](https://github.com/meteor/meteor/graphs/contributors) desde febrero de 2011 a Febrero del 2016:
 
 * 649 Releases
 * 374 Ramas
 * 266 Contribuidores
 
-Cuando [Spring](https://github.com/spring-projects/spring-framework) con un periodo de tiempo 3 años mas largo y muchíssimas más prestaciones:
+Cuando [Spring](https://github.com/spring-projects/spring-framework) con un periodo de tiempo 3 años mas largo y muchísimas más prestaciones:
 
-* 83 Releases (Y yo añadiria la pincelada de Estables)
+* 83 Releases (Y yo añadiría la pincelada de Estables)
 * 10 Ramas
 * 146 Contribuidores
 
 En demás proyectos los números son muy parecidos.
 
 Los cambios en los proyectos de NodeJS son muy elevados y normalmente poco rigurosos.
-Esto complica mucho mantenerse al dia. Supone que nuestra solución se tenga que afianzar con unas versiones concretas de nuestras dependéncias.
+Esto complica mucho mantenerse al día. Supone que nuestra solución se tenga que afianzar con unas versiones concretas de nuestras dependencias.
 
-NodeJS también permite tener [**"Nested Dependencies"**](http://maxogden.com/nested-dependencies.html), de forma que las dependencias transitivas (Dependencias de mis dependencias) pueden formar un árbol con diferentes versiones de librerias entre sus nodos.
-Esto por un lado provoca que no se fuerzen los cambios, pero por otro y en la práctica duplica considerablemente el número de archivos y de instáncias de objetos a memória, claro.
+NodeJS también permite tener [**"Nested Dependencies"**](http://maxogden.com/nested-dependencies.html), de forma que las dependencias transitivas (Dependencias de mis dependencias) pueden formar un árbol con diferentes versiones de librerías entre sus nodos.
+Esto por un lado provoca que no se fuercen los cambios, pero por otro y en la práctica duplica considerablemente el número de archivos y de instancias de objetos a memoria, claro.
 ![Nested deps image][nested_deps_image]
 
-Por ejemplo en uno de mis proyectos con módulos de node habituales y básicos, grunt, karma, jshint tengo en local 39462 archivos de dependéncias.
+Por ejemplo en uno de mis proyectos con módulos de node habituales y básicos, grunt, karma, jshint tengo en local 39462 archivos de dependencias.
 
 ### Documentaciones muy pobres
-Comparando por ejemplo la documentación de [Sails](http://sailsjs.org/documentation/concepts/) o [ExpressJS](http://expressjs.com/en/guide/routing.html) con [Solo una parte pequeña de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/) vemos que al menos por la cantidad ya hay una diferéncia podriamos decir de unas 300 linias a 1.
+Comparando por ejemplo la documentación de [Sails](http://sailsjs.org/documentation/concepts/) o [ExpressJS](http://expressjs.com/en/guide/routing.html) con [Solo una parte pequeña de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/) vemos que al menos por la cantidad ya hay una diferencia podríamos decir de unas 300 linias a 1.
 
 Si nos fijamos en la calidad habrá muchas opiniones pero normalmente los ciclos tan rápidos de cambios, ramas y aportaciones también condicionan que la calidad de la documentación de los frameworks de NodeJS tienda a la baja.
 
@@ -327,32 +324,33 @@ Si nos fijamos en la calidad habrá muchas opiniones pero normalmente los ciclos
 
 ¿Qué le pido a un Framework ?
 
-Lo primero que busco en un Framework es compatibilidad, cohesión, capacidad para dar una amplica gama de soluciones con una misma base.
+Lo primero que busco en un Framework es compatibilidad, cohesión, capacidad para dar una amplia gama de soluciones con una misma base.
 Si comparamos el Framework de NodeJS con mas prestaciones con Spring, tenemos que el Framework de node no llega a darnos ni un 10% de lo que nos da Spring.
 
-A dia de hoy No he encontrado frameworks en NodeJS con todas necesidades básicas como:
+A día de hoy No he encontrado frameworks en NodeJS con todas necesidades básicas como:
 
- * Control de dependencias
- * Persistencia
- * Generación de vistas
- * Connectividad en tiempo real
- * Configuración por entornos
- * Implementación de patrones de diseño, de integración
- * Buena integración con otros sistemas
- * Seguridad, Authenticación y Autorización
- * Logging
- * Cache
- * Monitorización
- * Procesado masivo de datos
- * Gestion de dependencias
- * Testing
+* Control de dependencias
+* Persistencia
+* Generación de vistas
+* Connectividad en tiempo real
+* Configuración por entornos
+* Implementación de patrones de diseño, de integración
+* Buena integración con otros sistemas
+* Seguridad, Authenticación y Autorización
+* Logging
+* Cache
+* Monitorización
+* Procesado masivo de datos
+* Gestión de dependencias
+* Testing
 
-Eso no significa que no tenga librerias para cubrirlo todo, significa que estas librerias no forman un Framework y por tanto no se han puesto de acuerdo. Para llegarlas a integrar puede que necesite conocerlas mejor que el desarrollador.
+Eso no significa que no tenga librerías para cubrirlo todo, significa que estas librerías no forman un Framework y por tanto no se han puesto de acuerdo. Para llegarlas a integrar puede que necesite conocerlas mejor que el desarrollador.
 
-¿ Que me pasará por ejemplo si quiero integrar un servicio SOAP con nodeJS y que intervenga por ejemplo en middleware de Sails ?
+¿Que me pasará por ejemplo si quiero integrar un servicio SOAP con nodeJS y que intervenga por ejemplo en middleware de Sails?
 
 ### Despliege
-No existe tampoco ningún standar o sistema de empaquetado para nodeJS, los despliegues en el servidor suelen ser con herramientas para ejecutar como un servicio de forma redundante el nucleo de node. Se suele tambien versionar cada proyecto con el código de todas sus dependencias debido a que a veces npm tiene problemas de conectividad, caches, etc...
+
+No existe tampoco ningún estándar o sistema de empaquetado para nodeJS, los despliegues en el servidor suelen ser con herramientas para ejecutar como un servicio de forma redundante el núcleo de node. Se suele también versionar cada proyecto con el código de todas sus dependencias debido a que a veces npm tiene problemas de conectividad, caches, etc...
 
 
 ## La Comunidad
@@ -365,17 +363,17 @@ Indiscutiblemente el punto de entrada a NodeJS es muy rápido, mucho mas que en 
 
 Hemos hablado de que NodeJS es adecuado en algunos casos, pero cuando no es adecuado:
 
-* En sistemas con Bd Relacionales. Debido a la immadurez de los ORM y de la necesidad de hacer llamadas sincronas.
-* Encuanto tengamos uso intensivo de CPU (Bloquearia la responsibidad de node)
+* En sistemas con Bd Relacionales. Debido a la immadurez de los ORM y de la necesidad de hacer llamadas síncronas.
+* Si tuviéramos uso intensivo de CPU (Bloquearía la respuesta de Node)
 * En bd NoSQL donde los objetos no sean JSON.
 
 En los que supuestamente es adecuado hay que perfilar más. Por ejemplo que pasa con un servicio de Streaming que analice en tiempo real los datos ? Usará la CPU no ?
 
 ### ¿ Y en los **MicroServices** ?
 
-En un ecosistema de ese tipo, necessito gestores de configuración centralizados, sistemas para autodiscovery de servicios activos, circuit breakers, global locks, sessiones distribuidas, leadership elections, ...
+En un ecosistema de ese tipo, necesito gestores de configuración centralizados, sistemas para autodiscovery de servicios activos, circuit breakers, global locks, sesiones distribuidas, leadership elections, ...
 
-¿Qué Framework me proporciona esto? ¿Si uso distintas librerias Node que problemas de integración me supone? ¿Y si me integro con otras soluciones de distintas tecnologias?
+¿Qué Framework me proporciona esto? ¿Si uso distintas librerías Node que problemas de integración me supone? ¿Y si me integro con otras soluciones de distintas tecnologias?
 
 
 > Todo esto me hace pensar si hay alguna otra solución en el mercado con la que pueda disponer de las ventajas de Node sin sus limitaciones:
@@ -387,11 +385,11 @@ En un ecosistema de ese tipo, necessito gestores de configuración centralizados
 ![Java Logo][java_logo_image]
 
 
-Solemos identificar Java con sus modelos clásicos a menudo propuestos por Sun Microsystems, como la [especificación de Servlets](http://download.oracle.com/otn-pub/jcp/servlet-3.0-fr-eval-oth-JSpec/servlet-3_0-final-spec.pdf?AuthParam=1456183031_2f62340d91f6ca0dcfb9c7e2004df9ba) lo interesante es que soluciones con la arquitectura de NodeJS ya existen en Java incluso desde antes que node. El problema fué quizá que al asociarse Java con su modelo tradicional, nadie lo tubo en cuenta como solucion.
+Solemos identificar Java con sus modelos clásicos a menudo propuestos por Sun Microsystems, como la [especificación de Servlets](http://download.oracle.com/otn-pub/jcp/servlet-3.0-fr-eval-oth-JSpec/servlet-3_0-final-spec.pdf?AuthParam=1456183031_2f62340d91f6ca0dcfb9c7e2004df9ba) lo interesante es que soluciones con la arquitectura de NodeJS ya existen en Java incluso desde antes que node. El problema fue quizá que al asociarse Java con su modelo tradicional, nadie lo tubo en cuenta como solución.
 
 ## Arquitectura
 
-Existen muchas implementaciones de la architectura de nodeJS en Java:
+Existen muchas implementaciones de la arquitectura de nodeJS en Java:
 
 * [Akka](http://akka.io/)
 * [Vert.x](http://vertx.io/)
@@ -408,16 +406,16 @@ Saliendo de implementaciones de terceros y volviendo a Java tradicional, Java so
 
 ### Beneficios
 
-Cuales serian pues los beneficios de usar la implementación de una arquitectura como la de node en Java ?
+¿Cuales serian pues los beneficios de usar la implementación de una arquitectura como la de node en Java?
 
 #### No tengo el event Driven Impuesto.
 El modelo de Event Driven
 
 #### No tengo el modelo asincrono impuesto
-Debido a que existen modelos hibridos como Play, [Spring](http://callistaenterprise.se/blogg/teknik/2014/04/22/c10k-developing-non-blocking-rest-services-with-spring-mvc/) o que es fácil implementar un metodo concreto de forma asíncrona.
-Si un proceso por ejemplo hace llamadas a una api que tienen que sincronizarse NodeJS pierde el sentido. No tenemos mas remedio que sincronizar código asincrono cosa que complica nuestra implementación innecesariamente.
+Debido a que existen modelos híbridos como Play, [Spring](http://callistaenterprise.se/blogg/teknik/2014/04/22/c10k-developing-non-blocking-rest-services-with-spring-mvc/) o que es fácil implementar un método concreto de forma asíncrona.
+Si un proceso por ejemplo hace llamadas a una api que tienen que sincronizarse NodeJS pierde el sentido. No tenemos mas remedio que sincronizar código asíncrono cosa que complica nuestra implementación innecesariamente.
 
-En Java es muy fácil implementar una de nuestras llamadas de forma explicitament asíncrona.
+En Java es muy fácil implementar una de nuestras llamadas de forma explicitamente asíncrona.
 Ejemplo llamada asíncrona en Java:
 
 {% highlight java %}
@@ -438,7 +436,7 @@ public class GitHubLookupService {
 }
 {% endhighlight %}
 
-En este punto también podemos mencionar que existen implementaciones como [akka](http://akka.io/) que facilitan la programación asyncrona muchísimo más que las de los actuales de NodeJS.
+En este punto también podemos mencionar que existen implementaciones como [akka](http://akka.io/) que facilitan la programación asíncrona muchísimo más que las de los actuales de NodeJS.
 
 #### No estoy ligado a Javascript
 
@@ -447,23 +445,21 @@ Muchos lenguages compilan al ByteCode de Java, Por ejemplo Skala o Clojure, Groo
 #### Performance
 http://www.olympum.com/java/java-aio-vs-nodejs/
 
-
 ## El Lenguaje
 
-Java es un lenguaje de propósito general basado en classes y especialmente diseñado para tener el mínimo de dependencias posibles. Es de tipado fuerte y compilado con la peculiaridad que se compila a un bytecode que lo ejecuta una máquina virtual. Al existir esa máquina virtual para todas la plataformas el código compilado de java puede funcionar en todas las plataformas.
+Java es un lenguaje de propósito general basado en clases y especialmente diseñado para tener el mínimo de dependencias posibles. Es de tipado fuerte y compilado con la peculiaridad que se compila a un bytecode que lo ejecuta una máquina virtual. Al existir esa máquina virtual para todas las plataformas el código compilado de java puede funcionar en todas las plataformas.
 
-En esencia mucho más eficiente que Javascript. V8 esta evolucionado en la parte cliente y Java lleva más de 20 años optimizando sus compiladores. Sin incluimos NodeJS tenemos una penalización extra con los bindings de Node a V8.
+En esencia mucho más eficiente que Javascript. V8 esta evolucionado en la parte cliente y Java lleva más de 20 años optimizando sus compiladores. Sin incluir NodeJS tenemos una penalización extra con los bindings de Node a V8.
 Aquí tenemos algunos ejemplos y pruebas de rendimiento:
 * [Benchmark algoritmos](http://benchmarksgame.alioth.debian.org/u32/javascript.html)
 * [Comparación peticiones por segundo con distintos Frameworks](https://medium.com/@tschundeee/express-vs-flask-vs-go-acc0879c2122#.9d4qj5p1d)
 
 
 Java No tiene las limitaciones que hemos hablado anteriormente para el control de excepciones, los errores en tiempo de ejecución, etc... Y a diferencia de JavaScript tiende a obligar a escribir buen código. Por ejemplo puede imponer que se implemente una interfaz.
-Java, devido a sus contratos y su tipado fuerte es un lenguage más Auto Documentado "Self-Documenting". Esta es una característica que cobra mucha importancia en proyectos grandes.
-Pero es que a demás en términos de cantidad de proyectos que usan el lenguage la adopción de java en los últimos años ha sido incluso [superior al de Javascript](https://github.com/blog/2047-language-trends-on-github).
+Java, debido a sus contratos y su tipado fuerte es un lenguaje más Auto Documentado "Self-Documenting". Esta es una característica que cobra mucha importancia en proyectos grandes.
+Pero es que a demás en términos de cantidad de proyectos que usan el lenguaje la adopción de java en los últimos años ha sido incluso [superior al de Javascript](https://github.com/blog/2047-language-trends-on-github).
 
-
-A demás existen alternativas a lenguages que compilan a byteCode de Java como skala o Clojure, Groovy, etc con los que puedo integrarme a nivel binario.
+A demás existen alternativas a lenguajes que compilan a byteCode de Java como skala o Clojure, Groovy, etc con los que puedo integrarme a nivel binario.
 
 ## Frameworks y Herramientas
 
@@ -471,7 +467,7 @@ En el mundo de los Frameworks y las Herramientas existen una mayor cantidad en J
 Voy a enumerar unas cuantas herramientas y frameworks que conozco personalmente:
 
 * Maven o Gradle con mas capacidades que npm
-* librerias de Monitorización como [Metrics](https://dropwizard.github.io/metrics/3.1.0/)
+* librerías de Monitorización como [Metrics](https://dropwizard.github.io/metrics/3.1.0/)
 * Para logging [LogBack](http://logback.qos.ch/)
 * Para control de versiones en BD: [Liquibase](http://www.liquibase.org/)
 * Cache [EHCache](http://www.ehcache.org/), [HazelCast](https://hazelcast.com/)
@@ -488,11 +484,11 @@ Pero si hablamos de Frameworks existe uno que se lleva el premio Gordo.
 
 [Spring  Framework](http://spring.io/projects)
 
-Spring nació en **2002** para simplificar el desarrollo de Java partiendo con un núcleo de IOC o injeccion de dependencias y AOP.
+Spring nació en **2002** para simplificar el desarrollo de Java partiendo con un núcleo de IOC o inyeccion de dependencias y AOP.
 
 ![Spring Overview][spring_overview_image]
 
-Una de las muchas cosas que ha hecho muy bien Spring es integrar un ecosistema de librerias para tener el honor de poderse llamar Full Stack:
+Una de las muchas cosas que ha hecho muy bien Spring es integrar un ecosistema de librerías para tener el honor de poderse llamar Full Stack:
 
 * **Spring Boot** (Configuració, staging, ejecución)
 * Spring Framework (Núcleo de Spring)
@@ -511,16 +507,15 @@ Una de las muchas cosas que ha hecho muy bien Spring es integrar un ecosistema d
 * Spring Session
 * ...
 
-Otra gran virtud de Spring es que es extremadamente escalable. Todas las capas que deben son abstractas. Por ejemplo la gesión de sessiones, de cache, de Transacciones todo es reimplementable o intercambiando piezas, confirugando el contexto hago cosas como cambiar la persistencia de sessión sin tocar nada más que una definición de Bean.
-
+Otra gran virtud de Spring es que es extremadamente escalable. Todas las capas que deben son abstractas. Por ejemplo la gestión de sesiones, de cache, de Transacciones todo es reimplementable o intercambiando piezas, configurando el contexto hago cosas como cambiar la persistencia de sesión sin tocar nada más que una definición de Bean.
 
 ## La Comunidad
 
-Las herramientas conservan las ventajas de ser comunidades de código abierto, pero suelen priorizar la estabilidad y compatibilidad de los proyectos, los códigos no son tan crípticos ni las aportaciones tan descontroladas y caoticas.
+Las herramientas conservan las ventajas de ser comunidades de código abierto, pero suelen priorizar la estabilidad y compatibilidad de los proyectos, los códigos no son tan crípticos ni las aportaciones tan descontroladas y caóticas.
 
 ## Uso adecuado
 
-Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones en Java y también para todos los usos no adecuados en node. De forma que Java me sirve para un mayor catálogo de soluciones. Aprender Java es mejor inversión y me permite sobretodo manter soluciones a largo plazo.
+Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones en Java y también para todos los usos no adecuados en node. De forma que Java me sirve para un mayor catálogo de soluciones. Aprender Java es mejor inversión y me permite sobretodo mantener soluciones a largo plazo.
 
 ---
 
@@ -528,22 +523,21 @@ Para todos los usos adecuados en NodeJS encontramos igual o mejores soluciones e
 
 El rápido punto de entrada de NodeJs resulta muy atractivo para acercar a los programadores de Front-End al Back-End, también es una buena herramienta para soluciones simples, prototipos y pruebas de concepto.
 
-Pero para proyectos de cierta duración, embergadura y robustez no nos interesa un punto de entrada rápido, sinó perfiles con amplio conocimiento de los patrones de diseño y arquitecturas que hay que aplicar. En estos casos, Java es mejor herramienta.
+Pero para proyectos de cierta duración, envergadura y robustez no nos interesa un punto de entrada rápido, sino perfiles con amplio conocimiento de los patrones de diseño y arquitecturas que hay que aplicar. En estos casos, Java es mejor herramienta.
 
 ---
 
 # Apendice: Experiencias en NodeJS
 
 ## Gad
-Mi experiencia en NodeJS con Sails y Restful. La aproximación fué inmediata, pero a la semana de trabajo ya empezamos a leer código de Sails por poca documentación. Luego al subir de complejidad la capa de servicio nos obligó a refactorizarla con poco éxito. Finalmente procesos con llamadas a servicios sincronizadas nos ocuparon mucho mas tiempo del esperado. A la semana de subir a producción teniamos un problema grabe en Sails que se arregló en una nueva versión que al instalarla rompió toda la capa de servicio ya que havian cambiado interfaces de su api.
+Mi experiencia en NodeJS con Sails y Restful. La aproximación fue inmediata, pero a la semana de trabajo ya empezamos a leer código de Sails por poca documentación. Luego al subir de complejidad la capa de servicio nos obligó a refactorizarla con poco éxito. Finalmente procesos con llamadas a servicios sincronizadas nos ocuparon mucho mas tiempo del esperado. A la semana de subir a producción teniamos un problema grabe en Sails que se arregló en una nueva versión que al instalarla rompió toda la capa de servicio ya que habían cambiado interfaces de su api.
 
 ## Netflix
 [Netflix uso NodeJs](http://www.talentbuddy.co/blog/building-with-node-js-at-netflix/)
-uno de sus motivos fué para que sus front-enders pudieran escribir también backend
+uno de sus motivos fue para que sus front-enders pudieran escribir también backend
 
 ## Ebay
-Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05/17/how-we-built-ebays-first-node-js-application/), en ella reconocen que no comprovaron otras opciones diferentes que el modelo tradicional de servlets en Java.
-
+Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05/17/how-we-built-ebays-first-node-js-application/), en ella reconocen que no comprobaron otras opciones diferentes que el modelo tradicional de servlets en Java.
 ![Ebay testimony][ebay_testimony_image]
 
 ----
