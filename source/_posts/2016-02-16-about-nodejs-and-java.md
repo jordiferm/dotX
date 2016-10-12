@@ -566,7 +566,7 @@ Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05
 ----
 
 
-[fight_image]: /assets/images/nodevsjava/fight.jpg
+[fight_image]: https://github.com/jordiferm/dotX/tree/master/source/assets/images/nodevsjava/fight.jpg
 [nodejs_internal_structure_image]: /assets/images/nodevsjava/node_internal_structure.png
 [nodejs_event_loop_image]: /assets/images/nodevsjava/nodejs_event_loop.png
 [soapattern_event_procesor_image]: /assets/images/nodevsjava/soapattern_event_processor.png
