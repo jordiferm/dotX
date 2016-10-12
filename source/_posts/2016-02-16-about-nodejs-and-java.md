@@ -190,7 +190,7 @@ Dicen que un trozo de código vale más que 1000 palabras.
 He seleccionado 2 trozos de código para representar la sensación que se tiene cuando se lee código Java o Javascript:
 
 Ejemplo de código Java originario de [Spring](https://github.com/spring-projects/spring-data-rest/blob/76380eb65087146c8e297bf03a50653c1669fd33/spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/BasePathAwareHandlerMapping.java):
-{% highlight java %}
+```
 @Override
 protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) throws Exception {
     List<MediaType> mediaTypes = new ArrayList<MediaType>();
@@ -209,7 +209,7 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
     }
     return super.lookupHandlerMethod(lookupPath, new CustomAcceptHeaderHttpServletRequest(request, mediaTypes));
 }
-{% endhighlight %}
+```
 
 
 Ejemplo de código JavaScript originario de la [libreria async](https://github.com/caolan/async/blob/master/lib/async.js)
