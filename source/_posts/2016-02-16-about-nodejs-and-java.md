@@ -567,16 +567,16 @@ Ebay tubo sus [experiencias en node en 2013](http://www.ebaytechblog.com/2013/05
 
 
 [fight_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/fight.jpg
-[nodejs_internal_structure_image]: /assets/images/nodevsjava/node_internal_structure.png
-[nodejs_event_loop_image]: /assets/images/nodevsjava/nodejs_event_loop.png
-[soapattern_event_procesor_image]: /assets/images/nodevsjava/soapattern_event_processor.png
-[javascript_logo_image]: /assets/images/nodevsjava/javascript_logo.png
-[frameworks_image]: /assets/images/nodevsjava/frameworks.png
-[java_logo_image]: /assets/images/nodevsjava/Java_Logo.jpg
-[javascript_good_parts_image]: /assets/images/nodevsjava/javascript-the-good-parts-the-definitive-guide.jpg
-[soapattern_general_image]: /assets/images/nodevsjava/soa.png
-[nested_deps_image]: /assets/images/nodevsjava/nested-deps.png
-[ebay_testimony_image]: /assets/images/nodevsjava/ebay_testimony.png
-[spring_ecosystem_image]: /assets/images/nodevsjava/spring-ecosystem.jpg
-[conclusion_image]: /assets/images/nodevsjava/conclusion.jpg
-[confused_man_image]: /assets/images/nodevsjava/confused_man.jpg
+[nodejs_internal_structure_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/node_internal_structure.png
+[nodejs_event_loop_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/nodejs_event_loop.png
+[soapattern_event_procesor_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/soapattern_event_processor.png
+[javascript_logo_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/javascript_logo.png
+[frameworks_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/frameworks.png
+[java_logo_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/Java_Logo.jpg
+[javascript_good_parts_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/javascript-the-good-parts-the-definitive-guide.jpg
+[soapattern_general_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/soa.png
+[nested_deps_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/nested-deps.png
+[ebay_testimony_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/ebay_testimony.png
+[spring_ecosystem_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/spring-ecosystem.jpg
+[conclusion_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/conclusion.jpg
+[confused_man_image]: https://raw.githubusercontent.com/jordiferm/dotX/master/source/assets/images/nodevsjava/confused_man.jpg
