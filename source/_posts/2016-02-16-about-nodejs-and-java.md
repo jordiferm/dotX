@@ -262,7 +262,7 @@ try {
   }
   // ... etc
 }
-```javascript
+```
 
 A demás el control de excepciones en códigos de naturaleza asíncrona, en esencia con muchos callbacks, se complica muchísimo.
 
