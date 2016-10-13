@@ -1,17 +1,3 @@
----
-layout: post
-title: "About NodeJS and Java"
-permalink: about-nodejs-and-java
-date: 2016-02-16 23:58:36
-comments: true
-description: "About NodeJS and Java"
-keywords: ""
-categories:
-
-tags:
-
----
-
 # Java vs NodeJS
 
 Sin duda uno de los temas de moda en internet en los sitios visitados por desarrolladores, arquitectos de software, etc...
@@ -213,7 +199,7 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
 
 
 Ejemplo de código JavaScript originario de la [libreria async](https://github.com/caolan/async/blob/master/lib/async.js)
-{% highlight javascript %}
+```javascript
 async.forEachOfSeries =
     async.eachOfSeries = function (obj, iterator, callback) {
         callback = _once(callback || noop);
@@ -246,7 +232,7 @@ async.forEachOfSeries =
         }
         iterate();
     };
-{% endhighlight %}
+```
 
 Estos son dos códigos seleccionados al azar que creo que representan muy bien lo que nos solemos encontrar en Java y los que nos solemos encontrar en Javascript.
 
@@ -265,7 +251,7 @@ Quizá por su naturaleza multi-proposito, o porqué en Javascript no hay una sol
 Al no tener tipos la gestión de excepciones en JavaScript pierde una de sus grandes bazas. ¿Como especializo el control de excepciones?
 En su esencia controlar excepciones es delegar el error a otro nivel o a otra capa. Cuando cazo una excepción es porque puedo actuar en consecuencia, aportar algo a ese control. En JavaScript no puedo seleccionar fácilmente que tipos de excepción voy a controlar y para ello me veo obligado a hacer comprobación de tipos en tiempo de ejecución.
 
-{% highlight javascript %}
+```javascript
 try {
   foo.bar();
 } catch (e) {
@@ -276,7 +262,7 @@ try {
   }
   // ... etc
 }
-{% endhighlight %}
+```javascript
 
 A demás el control de excepciones en códigos de naturaleza asíncrona, en esencia con muchos callbacks, se complica muchísimo.
 
@@ -432,7 +418,7 @@ Si un proceso por ejemplo hace llamadas a una api que tienen que sincronizarse N
 En Java es muy fácil implementar una de nuestras llamadas de forma explicitamente asíncrona.
 Ejemplo llamada asíncrona en Java:
 
-{% highlight java %}
+```java
 @Service
 public class GitHubLookupService {
 
@@ -448,7 +434,7 @@ public class GitHubLookupService {
     }
 
 }
-{% endhighlight %}
+```
 
 En este punto también podemos mencionar que existen implementaciones como [akka](http://akka.io/) que facilitan la programación asíncrona muchísimo más que las de los actuales de NodeJS.
 
